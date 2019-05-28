@@ -3,17 +3,14 @@ import './App.css';
 import SimpleMap from './GoogleMap.js'
 
 class App extends Component {
-  // Initialize state
-  state = { passwords: [] }
+  state = { passwords: [] } // Initialize state
 
-  // Fetch passwords after first mount
   componentDidMount() {
-    this.getPasswords();
+    this.getPasswords(); // Fetch passwords after first mount
   }
 
   getPasswords = () => {
-    // Get the passwords and store them in state
-    fetch('/api/passwords')
+    fetch('/api/passwords') // Get the passwords and store them in state
       .then(res => res.json())
       .then(passwords => this.setState({ passwords }));
   }
