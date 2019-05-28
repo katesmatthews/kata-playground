@@ -1,6 +1,6 @@
 # heroku-typescript-react-node
 
-iBoilerplate for a typescript react frontend / node backend application.  Setup to be deployed to heroku.
+Boilerplate for a typescript react frontend / node backend application.  Setup to be deployed to heroku.
 
 ## Setup
 
