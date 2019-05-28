@@ -1,4 +1,2 @@
-node_modules/**
-build/
-react-app/node_modules/**
-react-app/dist/**
+dist
+node_modules
