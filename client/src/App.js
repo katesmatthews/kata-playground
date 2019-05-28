@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import SimpleMap from './GoogleMap.js'
 import Button from '@material-ui/core/Button';
-
-
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
 
 class App extends Component {
   state = { passwords: [] } // Initialize state
@@ -21,10 +21,24 @@ class App extends Component {
   render() {
     const { passwords } = this.state;
 
+    const theme = createMuiTheme({
+      palette: {
+        primary: purple,
+        secondary: {
+          main: '#f44336',
+        },
+      },
+    });
+
+
     return (
       <div className="App">
         {/* SIMPLE MAP */}
         <SimpleMap />
+
+        {/* THEME? */}
+        {theme}
+
         {/* PASSWORD GENERATOR */} {/* Render the passwords if we have them */}
         {passwords.length ? (
           <div>
