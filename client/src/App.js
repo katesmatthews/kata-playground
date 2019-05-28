@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import SimpleMap from './GoogleMap.js'
+import Button from '@material-ui/core/Button';
+
+
 
 class App extends Component {
   state = { passwords: [] } // Initialize state
@@ -20,8 +23,9 @@ class App extends Component {
 
     return (
       <div className="App">
+        {/* SIMPLE MAP */}
         <SimpleMap />
-        {/* Render the passwords if we have them */}
+        {/* PASSWORD GENERATOR */} {/* Render the passwords if we have them */}
         {passwords.length ? (
           <div>
             <h1>5 Passwords.</h1>
@@ -48,11 +52,12 @@ class App extends Component {
             // Render a helpful message otherwise
             <div>
               <h1>No passwords :(</h1>
-              <button
-                className="more"
+              <Button
+                variant="contained"
+                color="primary"
                 onClick={this.getPasswords}>
                 Try Again?
-            </button>
+            </Button>
             </div>
           )}
       </div>
