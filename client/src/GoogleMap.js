@@ -25,11 +25,7 @@ export class MapContainer extends Component {
         <Marker
           name={'Your position'}
           position={{ lat: 37.762391, lng: -122.439192 }}
-          icon={{
-            url: "/path/to/custom_icon.png",
-            anchor: new google.maps.Point(32, 32),
-            scaledSize: new google.maps.Size(64, 64)
-          }} />
+        />
       </Map>
     );
   }
