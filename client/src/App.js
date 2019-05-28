@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { MapContainer } from 'GoogleMap';
+import { MapContainer } from './GoogleMap';
 
 class App extends Component {
   // Initialize state
