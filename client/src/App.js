@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import GoogleMap from 'GoogleMap';
+import { MapContainer } from 'GoogleMap';
 
 class App extends Component {
   // Initialize state
@@ -23,7 +23,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <GoogleMap />
+        <MapContainer />
         {/* Render the passwords if we have them */}
         {passwords.length ? (
           <div>
