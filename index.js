@@ -1,40 +1,34 @@
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+const express = require('express');
+const path = require('path');
+const generatePassword = require('password-generator');
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`))
+const app = express();
 
-//const express = require('express');
-//const path = require('path');
-//const generatePassword = require('password-generator');
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-//const app = express();
+// Put all API endpoints under '/api'
+app.get('/api/passwords', (req, res) => {
+  const count = 5;
 
-//// Serve static files from the React app
-//app.use(express.static(path.join(__dirname, 'client/build')));
+  // Generate some passwords
+  const passwords = Array.from(Array(count).keys()).map(i =>
+    generatePassword(12, false)
+  )
 
-//app.get('/api/passwords', (req, res) => {
-  //const count = 5;
+  // Return them as json
+  res.json(passwords);
 
-  //const passwords = Array.from(Array(count).keys()).map(i => {
-    //generatePassword(12, false)
-  //})
+  console.log(`Sent ${count} passwords`);
+});
 
-  //res.json(passwords)
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
-  //console.log(`Sent ${count} passwords`)
-//})
+const port = process.env.PORT || 5000;
+app.listen(port);
 
-//app.get('*', (req, res) => {
-  //res.sendFile(path.join(__dirname + '/client/build/index.html'))
-//})
-
-//const port = process.env.PORT || 5000;
-//app.listen(port);
-
-//console.log(`Password generator listening on ${port}`);
+console.log(`Password generator listening on ${port}`);
