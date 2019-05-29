@@ -3,6 +3,7 @@ const path = require('path');
 const generatePassword = require('password-generator');
 require('dotenv').config()
 
+
 const app = express();
 
 // Serve static files from the React app
