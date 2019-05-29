@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const generatePassword = require('password-generator');
+require('dotenv').config()
 
 const app = express();
 
