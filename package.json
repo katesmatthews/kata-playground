@@ -6,7 +6,8 @@
   "author": "saylestyler <saylestyler@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "dependencies": {
     "express": "^4.17.1",
